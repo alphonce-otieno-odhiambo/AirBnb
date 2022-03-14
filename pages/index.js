@@ -16,8 +16,17 @@ export default function Home() {
       <Header/>
       {/* Banner */}
       <Banner/>
-
+      <main className='max-w-7xl mx-auto px-8 sm:px-16'>
+        <section className='pt-6'>
+          <h2 className='font-semibold pb-6  text-4xl '>Explore nearby</h2>
+          {/* Sever side rendering .. static rendering */}
+        </section>
+      </main>
      
     </div>
   )
-}
+};
+
+export async function getStaticProps(){
+
+};
