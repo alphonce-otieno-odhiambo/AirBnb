@@ -6,6 +6,7 @@ import Banner from '../components/Banner'
 import Smallcard from '../components/Smallcard';
 import Mediumcard from '../components/Mediumcard';
 import Largecard from '../components/Largecard';
+import Footer from '../components/Footer';
 export default function Home( {exploreData, cardsData}) {
   return (
     <div className={styles.container}>
@@ -53,10 +54,11 @@ export default function Home( {exploreData, cardsData}) {
         <Largecard 
         img='https://links.papareact.com/4cj'
         title='The greatest Outdoors'
-        description = 'Wishlist curated bt Airbnb'
+        description = 'Wishlist created by Airbnb'
         buttonText='get Inspired'
         />
       </main>
+      <Footer/>
      
     </div>
   )
