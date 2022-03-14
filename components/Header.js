@@ -7,7 +7,12 @@ import {
     UsersIcon,
     MenuIcon
 } from '@heroicons/react/solid';
+import {useState} from 'react';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 function Header() {
+const [searchInput, setSearchInput] = useState("")
+
   return (
     <header className=' sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10 '>
        
@@ -23,7 +28,10 @@ function Header() {
        </div>
        {/* middle */}
        <div className='flex items-center md:border-2 py-2 rounded-full md:shadow-sm'>
-           <input className='pl-5 bg-transparent outline-none flex-grow' type="text" placeholder='Search'/>
+           <input 
+           onChange={(e)=> setSearchInput(e.target.value)}
+           value={searchInput}
+           className='pl-5 bg-transparent outline-none flex-grow' type="text" placeholder='Search'/>
            <SearchIcon className='hidden md:inline-flex h-8 bg-red-400 text-white md:mx-2 rounded-full cursor-pointer p-2'/>
        </div>
        {/* right */}
@@ -36,6 +44,10 @@ function Header() {
            </div>
            
        </div>
+       {searchInput && (
+       <div></div>
+       )}
+       
     </header>
   )
 }
