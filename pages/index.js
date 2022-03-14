@@ -27,6 +27,14 @@ export default function Home() {
   )
 };
 
-export async function getStaticProps(){
-
-};
+export async function detStaticProps(){
+  const exploreData = await fetch("https://links.papareact.com/pyp").
+  then(
+    (res) => res.json()
+  );
+  return {
+    props : {
+      exploreData
+    }
+  }
+}
