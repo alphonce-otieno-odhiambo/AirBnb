@@ -3,7 +3,10 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from '../components/Header';
 import Banner from '../components/Banner'
-export default function Home() {
+import Smallcard from '../components/Smallcard';
+import Mediumcard from '../components/Mediumcard';
+import Largecard from '../components/Largecard';
+export default function Home( {exploreData, cardsData}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,21 +23,60 @@ export default function Home() {
         <section className='pt-6'>
           <h2 className='font-semibold pb-6  text-4xl '>Explore nearby</h2>
           {/* Sever side rendering .. static rendering */}
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+          {exploreData?.map(({img,distance,location}) =>(
+         <Smallcard 
+         key={img}
+         img={img}
+         distance={distance}
+         location={location}
+         />
+        ))}
+          </div>
+        
         </section>
+        <section>
+        <h2 className='font-4xl font-semibold py-8'>Live Anywhere</h2>
+          <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3 ml-3'> 
+         
+          {cardsData?.map(({img,title}) =>(
+         <Mediumcard 
+         key={img}
+         img={img}
+         title={title}
+         
+         />
+        ))}
+          </div>
+          
+        </section>
+        <Largecard 
+        img='https://links.papareact.com/4cj'
+        title='The greatest Outdoors'
+        description = 'Wishlist curated bt Airbnb'
+        buttonText='get Inspired'
+        />
       </main>
      
     </div>
   )
 };
 
-export async function detStaticProps(){
+export async function getStaticProps(){
   const exploreData = await fetch("https://links.papareact.com/pyp").
   then(
     (res) => res.json()
   );
+
+  const cardsData = await fetch("https://links.papareact.com/zp1").
+  then(
+    (res) => res.json()
+  )
+  
   return {
     props : {
-      exploreData
+      exploreData,
+      cardsData
     }
   }
 }
