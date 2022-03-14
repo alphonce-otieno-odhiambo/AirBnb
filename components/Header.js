@@ -2,7 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 import {
     SearchIcon,
-    
+    GlobeIcon,
+    UserCircleIcon,
+    UsersIcon,
+    MenuIcon
 } from '@heroicons/react/solid';
 function Header() {
   return (
@@ -23,7 +26,15 @@ function Header() {
            <SearchIcon className='hidden md:inline-flex h-8 bg-red-400 text-white md:mx-2 rounded-full cursor-pointer p-2'/>
        </div>
        {/* right */}
-       <div></div>
+       <div className='flex space-x-3 items-center justify-end text-gray-400'>
+           <p className='hidden md:inline cursor-pointer'> beacome a host</p>
+           <GlobeIcon className='h-6 cursor-pointer'/>
+           <div className='flex items-center space-x-2 rounded-full border-2 p-2'>
+           <MenuIcon className='h-6'/>
+           <UserCircleIcon className='h-6'/>
+           </div>
+           
+       </div>
     </header>
   )
 }
