@@ -1,9 +1,12 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 
 function search() {
+    const router =useRouter();
+    const {location, startDate, endDate, noOfGuest} = router.query
   return (
     <div className='h-screen'>
        <Header/>
