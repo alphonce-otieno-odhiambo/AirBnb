@@ -23,6 +23,10 @@ const hundleSelect = (ranges)=>{
   setEndDate(ranges.selection.endDate);
 }
 
+const resetInput = () => {
+  setSearchInput("")
+}
+
 const selectionRange = {
   startDate :startDate,
   endDate :endDate,
@@ -76,6 +80,12 @@ const selectionRange = {
            onChange={(e)=> setNoOfGuest(e.target.value)}
            min={1}
            type="number" className='pl-2 w-12 text-lg outline-none text-red-400'/>
+         </div>
+         <div className='flex '>
+           <button className='flex-grow text-gray-500'
+           onClick={resetInput}
+           >Cancel</button>
+           <button className='flex-grow text-red-500' >Search</button>
          </div>
        </div>
        )}
