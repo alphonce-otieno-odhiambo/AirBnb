@@ -16,6 +16,11 @@ const [searchInput, setSearchInput] = useState("");
 const [startDate,setStartDate ] = useState(new Date());
 const [endDate, setEndDate] = useState(new Date())
 
+const hundleSelect = (ranges)=>{
+  setStartDate(ranges.Selection.startDate);
+  setEndDate(ranges.Selection.endDate)
+}
+
 const selectionRange = {
   startDate :startDate,
   endDate :endDate,
@@ -57,6 +62,9 @@ const selectionRange = {
        <div>
          <DateRangePicker
          ranges={[selectionRange]}
+         minDate = {new Date()}
+         rangeColors={["#FD5B61"]}
+         onChange={hundleSelect}
          />
        </div>
        )}
