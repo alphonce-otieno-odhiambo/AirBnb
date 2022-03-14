@@ -13,7 +13,11 @@ function search() {
                <h1 className='text-3xl font-semibold mb-6 mt-2'> Stays in Mars</h1>
 
                <div className=''>
-                   <p className='px-4 border py-4 active:scale-95 active:bg-gray-200 transition transform duration-200 ease-out rounded-full cursor-pointer hover:shadow-lg'>Cancel button flexibility</p>
+                   <p className='button'>Cancel button flexibility</p>
+                   <p className='button'>Type of place</p>
+                   <p className='button'>Price</p>
+                   <p className='button'>Rooms and Beds</p>
+                   <p className='button'>More filters</p>
                </div>
            </section>
 

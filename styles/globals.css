@@ -17,3 +17,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@layer components {
+      .button {
+        @apply px-4 border py-4 active:scale-95 active:bg-gray-200 transition transform duration-200 ease-out rounded-full cursor-pointer hover:shadow-lg
+      }
+}
