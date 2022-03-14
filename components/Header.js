@@ -15,7 +15,8 @@ import { DateRangePicker } from 'react-date-range';
 function Header() {
 const [searchInput, setSearchInput] = useState("");
 const [startDate,setStartDate ] = useState(new Date());
-const [endDate, setEndDate] = useState(new Date())
+const [endDate, setEndDate] = useState(new Date());
+const [noOfGuest, setNoOfGuest] = useState(1)
 
 const hundleSelect = (ranges)=>{
   setStartDate(ranges.selection.startDate);
@@ -70,7 +71,11 @@ const selectionRange = {
          <div className='flex items-center border-b mb-3'>
            <h2 className='text-2xl flex-grow font-semibold'> No. of guests</h2>
            <UserIcon className='h-5'/>
-           <input type="number" className='pl-2 w-12 text-lg outline-none text-red-100'/>
+           <input 
+           value={noOfGuest}
+           onChange={(e)=> setNoOfGuest(e.target.value)}
+           min={1}
+           type="number" className='pl-2 w-12 text-lg outline-none text-red-400'/>
          </div>
        </div>
        )}
