@@ -13,7 +13,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { useRouter } from 'next/router';
-function Header() {
+function Header({placeholder}) {
 const [searchInput, setSearchInput] = useState("");
 const [startDate,setStartDate ] = useState(new Date());
 const [endDate, setEndDate] = useState(new Date());
@@ -64,7 +64,7 @@ const search = () => {
            <input 
            onChange={(e)=> setSearchInput(e.target.value)}
            value={searchInput}
-           className='pl-5 bg-transparent outline-none flex-grow' type="text" placeholder='Search'/>
+           className='pl-5 bg-transparent outline-none flex-grow' type="text" placeholder={placeholder || 'Search'}/>
            <SearchIcon className='hidden md:inline-flex h-8 bg-red-400 text-white md:mx-2 rounded-full cursor-pointer p-2'/>
        </div>
        {/* right */}
@@ -84,10 +84,11 @@ const search = () => {
          minDate = {new Date()}
          rangeColors={["#FD5B61"]}
          onChange={hundleSelect}
+
          />
          <div className='flex items-center border-b mb-3'>
            <h2 className='text-2xl flex-grow font-semibold'> No. of guests</h2>
-           <UserIcon className='h-5'/>
+           <UsersIcon className='h-5'/>
            <input 
            value={noOfGuest}
            onChange={(e)=> setNoOfGuest(e.target.value)}
