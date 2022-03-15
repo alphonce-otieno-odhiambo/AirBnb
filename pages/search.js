@@ -4,6 +4,7 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { format } from 'date-fns';
+import InfoCard from '../components/InfoCard';
 
 
 function search({searchResults}) {
@@ -29,6 +30,19 @@ function search({searchResults}) {
                    <p className='button'>Rooms and Beds</p>
                    <p className='button'>More filters</p>
                </div>
+               {searchResults.map(({img, location, price, description, star, title, total})=> (
+                   <InfoCard 
+                   key={img}
+                   img={img}
+                   price={price}
+                   description={description}
+                   star={star}
+                   title={title}
+                   total={total}
+                   location={location}
+
+                   />
+               ))}
            </section>
 
        </main>
