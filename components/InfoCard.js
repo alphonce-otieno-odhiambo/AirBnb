@@ -10,6 +10,7 @@ function InfoCard({img, location, price, description, star, title, total}) {
             <Image src={img} alt=""
             objectFit='cover'
             layout='fill'
+            className='rounded-2xl'
             />
         </div>
 
