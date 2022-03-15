@@ -6,7 +6,8 @@ import Header from '../components/Header';
 import { format } from 'date-fns';
 
 
-function search() {
+function search({searchResults}) {
+    console.log(searchResults)
     const router =useRouter();
     const {location, startDate, endDate, noOfGuest} = router.query
 
@@ -36,4 +37,18 @@ function search() {
   )
 }
 
-export default search
+export default search;
+
+export async function getServerSideProps(){
+    const searchResults = await fetch("https://links.papareact.com/isz").
+    then(
+      (res) => res.json()
+    );
+    
+    return {
+      props : {
+        searchResults,
+        
+      }
+    }
+  }
