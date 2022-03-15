@@ -30,6 +30,21 @@ function search({searchResults}) {
                    <p className='button'>Rooms and Beds</p>
                    <p className='button'>More filters</p>
                </div>
+               <div className='flex flex-col'>
+               {searchResults.map(({img, location, price, description, star, title, total})=> (
+                   <InfoCard 
+                   key={img}
+                   img={img}
+                   price={price}
+                   description={description}
+                   star={star}
+                   title={title}
+                   total={total}
+                   location={location}
+
+                   />
+               ))}
+               </div>
                {searchResults.map(({img, location, price, description, star, title, total})=> (
                    <InfoCard 
                    key={img}
